@@ -28,14 +28,22 @@ jobs:
       - name: List files (debugging)
         run: ls -la *.pdf
         
+      - name: Debug git status
+        run: |
+          git status
+          git branch
+          git remote -v
         
       - name: Commit and push PDF
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
+          git branch -f main HEAD
+          git checkout main
+
           git add kb-crypto-writeup.pdf
           
           git diff --staged --quiet || git commit -m "Auto-compile Typst writeup"
           
-          git push origin main
+          git push 
