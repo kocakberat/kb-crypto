@@ -99,6 +99,7 @@ This phase occurs in a trusted network, like the company headquarters. Data can 
   image("images/flowchart_phase1.png" , width:100%),
   caption:[Simplified flowchart of the first phase]
 )
+TEST FOR YAML!
 
 == Phase 2: Continuing Usage
 At the airport, authorities screen the worker for credentials like keys or passwords. The worker carries nothing suspicious and is cleared. They proceed to the factory, investigate issues, and notify headquarters using the communication tool.
