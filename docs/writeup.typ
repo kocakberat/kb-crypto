@@ -73,7 +73,6 @@ The primary objective of this project is to teach myself the programming languag
 + #underline[Networking]
  - Protocol:  I want to fully understand the HTTP protocol at the byte level, including request/response formatting, headers, and status codes.
  - Raw Sockets: I am using raw sockets instead of libraries like httplib/cpp-httplib so I can fully understand every part of the protocol.
- - Noise Reduction: I will explore techniques to reduce traffic pattern visibility, though this is not my first concern.
 + #underline[Critical Evaluation]
  - Attack Vectors: I will identify potential attack vectors (MITM, replay, timing analysis, traffic analysis, etc.), and harden the protocol based on my findings.
  - Cryptographic strength: I want to use modern cryptographic algorithms.
@@ -90,24 +89,37 @@ The following areas are explicitly out of scope:
 + Formal cryptographic verification
 
 #pagebreak()
-= Design & Architecture
+= The problem
+A worker must leave headquarters to investigate factory issues in a country where the government controls all network traffic. HTTPS is blocked, data must flow in cleartext, and authorities inspect incoming travelers for credentials or keys. We need a solution for secure data transmission under these constraints.
 
-== Two-phased approach
-=== Phase 1: Initial Setup
 
-=== Phase 2: Continuing Usage
+== Phase 1: Initial Setup
+This phase occurs in a trusted network, like the company headquarters. Data can flow securely even when unencrypted. The client registers by uploading credentials, which the server stores securely. The worker then departs for the other country.
+#figure(
+  image("images/flowchart_phase1.png" , width:100%),
+  caption:[Simplified flowchart of the first phase]
+)
+
+== Phase 2: Continuing Usage
+At the airport, authorities screen the worker for credentials like keys or passwords. The worker carries nothing suspicious and is cleared. They proceed to the factory, investigate issues, and notify headquarters using the communication tool.
+#figure(
+  image("images/flowchart_phase2.png" , width:100%),
+  caption:[Simplified flowchart of the second phase]
+)
+
 == Implementation Details
-
-== Logging
-
-== Challenges & Solutions
+=== Registration (Phase 1)
+=== Credential Storage (Phase 1)
+=== Authentification (Phase 2)
+=== Key agreement (Phase 2)
+=== Transmission (Phase 2)
+=== Logging (Phase 2)
 
 #pagebreak()
-= Results & Observations
+
+= Evaluation & Next Steps 
 == Reflection on Initial Goals
-
-#pagebreak()
-= Future Improvements 
+== Future Improvements 
 
 #pagebreak()
 = Appendix
