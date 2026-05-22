@@ -5,6 +5,11 @@ on:
     branches: [ "main" ]   
     paths:                
       - 'docs/writeup.typ'    
+  workflow_dispatch:
+    inputs:
+      notify:
+        description: 'Send notification'
+        required: false
 
 permissions:
   contents: write          
