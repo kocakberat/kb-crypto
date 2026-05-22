@@ -1,0 +1,9 @@
+/build/         
+/bin/            
+/obj/            
+/ipch/          
+*.exe
+*.obj
+*.pdb
+*.user
+.vs/
