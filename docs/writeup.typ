@@ -99,6 +99,10 @@ This phase occurs in a trusted network, like the company headquarters. Data can 
   image("images/flowchart_phase1.png" , width:100%),
   caption:[Simplified flowchart of the first phase]
 )
+#figure(
+  image("images/simplified_sequence_phase1.png" , width:120%),
+  caption:[Non-technical sequence diagram of phase one]
+)
 
 == Phase 2: Continuing Usage
 At the airport, authorities screen the worker for credentials like keys or passwords. The worker carries nothing suspicious and is cleared. They proceed to the factory, investigate issues, and notify headquarters using the communication tool.
@@ -106,6 +110,34 @@ At the airport, authorities screen the worker for credentials like keys or passw
   image("images/flowchart_phase2.png" , width:100%),
   caption:[Simplified flowchart of the second phase]
 )
+```
+#figure(
+  image("images/simplified_sequence_phase2.png" , width:120%),
+  caption:[Non-technical sequence diagram of phase two]
+)
+```
+
+```
+sequenceDiagram
+    actor User
+    participant CryptoTool
+    participant Client
+    participant Server 
+    participant DB@{ "type" : "database" }
+    Note over User, DB: Phase 2: Continuing Usage in untrusted network
+    User -->> Client: I want to login! 
+    Client -->> User: Show login window
+    User ->> CryptoTool: Image
+    activate CryptoTool
+    CryptoTool ->> CryptoTool: Calculate Image Hash
+    CryptoTool ->> User: Image Hash
+    deactivate CryptoTool
+    User -->> Client: Username, Image Hash
+    Client ->> Server: Username, Image Hash
+
+```
+
+
 
 == Implementation Details
 === Registration (Phase 1)
@@ -116,12 +148,6 @@ At the airport, authorities screen the worker for credentials like keys or passw
 === Logging (Phase 2)
 
 #pagebreak()
-
-= Evaluation & Next Steps 
+= Evaluation and Next Steps 
 == Reflection on Initial Goals
 == Future Improvements 
-
-#pagebreak()
-= Appendix
-== File structure
-== Images
