@@ -25,6 +25,9 @@ jobs:
       - name: Compile writeup.typ
         run: typst compile docs/writeup.typ kb-crypto-writeup.pdf
         
+      - name: List files (debugging)
+        run: ls -la *.pdf
+        
       - name: Commit and push PDF
         run: |
           git config --local user.email "action@github.com"
@@ -34,4 +37,4 @@ jobs:
           
           git diff --staged --quiet || git commit -m "Auto-compile Typst writeup"
           
-          git push
+          git push origin main
