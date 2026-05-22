@@ -1,0 +1,37 @@
+name: Compile Typst Document
+
+on:
+  push:                    
+    branches: [ "main" ]   
+    paths:                
+      - 'docs/writeup.typ'    
+
+permissions:
+  contents: write          
+
+jobs:
+  build:                   
+    runs-on: ubuntu-latest 
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+        with:
+          typst-version: latest    
+   
+      - name: Compile writeup.typ
+        run: typst compile docs/writeup.typ kb-crypto-writeup.pdf
+        
+      - name: Commit and push PDF
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          git add kb-crypto-docs.pdf
+          
+          git diff --staged --quiet || git commit -m "Auto-compile Typst writeup"
+          
+          git push
