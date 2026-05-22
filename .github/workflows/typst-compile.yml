@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          git add kb-crypto-docs.pdf
+          git add kb-crypto-writeup.pdf
           
           git diff --staged --quiet || git commit -m "Auto-compile Typst writeup"
           
