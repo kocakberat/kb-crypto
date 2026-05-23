@@ -110,32 +110,12 @@ At the airport, authorities screen the worker for credentials like keys or passw
   image("images/flowchart_phase2.png" , width:100%),
   caption:[Simplified flowchart of the second phase]
 )
-```
+
 #figure(
-  image("images/simplified_sequence_phase2.png" , width:120%),
-  caption:[Non-technical sequence diagram of phase two]
+  image("images/simplified_sequence_phase2_A.png" , width:120%),
+  caption:[Non-technical sequence diagram of the authentication in phase two]
 )
-```
 
-```
-sequenceDiagram
-    actor User
-    participant CryptoTool
-    participant Client
-    participant Server 
-    participant DB@{ "type" : "database" }
-    Note over User, DB: Phase 2: Continuing Usage in untrusted network
-    User -->> Client: I want to login! 
-    Client -->> User: Show login window
-    User ->> CryptoTool: Image
-    activate CryptoTool
-    CryptoTool ->> CryptoTool: Calculate Image Hash
-    CryptoTool ->> User: Image Hash
-    deactivate CryptoTool
-    User -->> Client: Username, Image Hash
-    Client ->> Server: Username, Image Hash
-
-```
 
 
 
