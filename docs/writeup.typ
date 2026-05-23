@@ -112,7 +112,7 @@ At the airport, authorities screen the worker for credentials like keys or passw
 )
 
 #figure(
-  image("images/simplified_sequence_phase2_A.png" , width:120%),
+  image("images/simplified_sequence_phase2_a.png" , width:120%),
   caption:[Non-technical sequence diagram of the authentication in phase two]
 )
 
